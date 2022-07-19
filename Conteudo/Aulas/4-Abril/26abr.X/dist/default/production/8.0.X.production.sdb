@@ -1,0 +1,203 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+[d frameptr 4065 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"9 C:\Users\48417044850\MPLABXProjects\8.0.X\lcdi2c.c
+[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
+"19
+[v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
+"24
+[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
+"36
+[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
+"56
+[v _I2C_Master_Write I2C_Master_Write `(uc  1 e 1 0 ]
+"80
+[v _LCD_Init LCD_Init `(v  1 e 1 0 ]
+"103
+[v _IO_Expander_Write IO_Expander_Write `(v  1 e 1 0 ]
+"111
+[v _LCD_Write_4Bit LCD_Write_4Bit `(v  1 e 1 0 ]
+"120
+[v _LCD_CMD LCD_CMD `(v  1 e 1 0 ]
+"127
+[v _LCD_Write_Char LCD_Write_Char `(v  1 e 1 0 ]
+"134
+[v _LCD_Write_String LCD_Write_String `(v  1 e 1 0 ]
+"140
+[v _LCD_Set_Cursor LCD_Set_Cursor `(v  1 e 1 0 ]
+"75 C:\Users\48417044850\MPLABXProjects\8.0.X\main.c
+[v _main main `(v  1 e 1 0 ]
+[s S28 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"3657 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[s S37 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+[u S46 . 1 `S28 1 . 1 0 `S37 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES46  1 e 1 @3987 ]
+"6806
+[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @4037 ]
+"6868
+[v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
+"6938
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
+"7186
+[v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
+"7193
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
+"8910
+[v _ACKDT ACKDT `VEb  1 e 0 @32301 ]
+"8913
+[v _ACKEN ACKEN `VEb  1 e 0 @32300 ]
+"8916
+[v _ACKSTAT ACKSTAT `VEb  1 e 0 @32302 ]
+"10275
+[v _PEN PEN `VEb  1 e 0 @32298 ]
+"10434
+[v _RCEN RCEN `VEb  1 e 0 @32299 ]
+"10515
+[v _RSEN RSEN `VEb  1 e 0 @32297 ]
+"10560
+[v _SEN SEN `VEb  1 e 0 @32296 ]
+"10644
+[v _SSPIF SSPIF `VEb  1 e 0 @31987 ]
+"5 C:\Users\48417044850\MPLABXProjects\8.0.X\lcdi2c.c
+[v _RS RS `uc  1 e 1 0 ]
+[v _i2c_add i2c_add `uc  1 e 1 0 ]
+[v _BackLight_State BackLight_State `uc  1 e 1 0 ]
+"75 C:\Users\48417044850\MPLABXProjects\8.0.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"88
+} 0
+"134 C:\Users\48417044850\MPLABXProjects\8.0.X\lcdi2c.c
+[v _LCD_Write_String LCD_Write_String `(v  1 e 1 0 ]
+{
+"136
+[v LCD_Write_String@i i `i  1 a 2 9 ]
+"134
+[v LCD_Write_String@Str Str `*.25uc  1 p 2 5 ]
+"138
+} 0
+"127
+[v _LCD_Write_Char LCD_Write_Char `(v  1 e 1 0 ]
+{
+[v LCD_Write_Char@Data Data `uc  1 a 1 wreg ]
+[v LCD_Write_Char@Data Data `uc  1 a 1 wreg ]
+"129
+[v LCD_Write_Char@Data Data `uc  1 a 1 4 ]
+"132
+} 0
+"140
+[v _LCD_Set_Cursor LCD_Set_Cursor `(v  1 e 1 0 ]
+{
+[v LCD_Set_Cursor@ROW ROW `uc  1 a 1 wreg ]
+[v LCD_Set_Cursor@ROW ROW `uc  1 a 1 wreg ]
+[v LCD_Set_Cursor@COL COL `uc  1 p 1 5 ]
+[v LCD_Set_Cursor@ROW ROW `uc  1 a 1 8 ]
+"157
+} 0
+"80
+[v _LCD_Init LCD_Init `(v  1 e 1 0 ]
+{
+[v LCD_Init@I2C_Add I2C_Add `uc  1 a 1 wreg ]
+[v LCD_Init@I2C_Add I2C_Add `uc  1 a 1 wreg ]
+"82
+[v LCD_Init@I2C_Add I2C_Add `uc  1 a 1 6 ]
+"101
+} 0
+"120
+[v _LCD_CMD LCD_CMD `(v  1 e 1 0 ]
+{
+[v LCD_CMD@CMD CMD `uc  1 a 1 wreg ]
+[v LCD_CMD@CMD CMD `uc  1 a 1 wreg ]
+"122
+[v LCD_CMD@CMD CMD `uc  1 a 1 4 ]
+"125
+} 0
+"111
+[v _LCD_Write_4Bit LCD_Write_4Bit `(v  1 e 1 0 ]
+{
+[v LCD_Write_4Bit@Nibble Nibble `uc  1 a 1 wreg ]
+[v LCD_Write_4Bit@Nibble Nibble `uc  1 a 1 wreg ]
+"114
+[v LCD_Write_4Bit@Nibble Nibble `uc  1 a 1 3 ]
+"118
+} 0
+"103
+[v _IO_Expander_Write IO_Expander_Write `(v  1 e 1 0 ]
+{
+[v IO_Expander_Write@Data Data `uc  1 a 1 wreg ]
+[v IO_Expander_Write@Data Data `uc  1 a 1 wreg ]
+"105
+[v IO_Expander_Write@Data Data `uc  1 a 1 2 ]
+"109
+} 0
+"56
+[v _I2C_Master_Write I2C_Master_Write `(uc  1 e 1 0 ]
+{
+[v I2C_Master_Write@data data `uc  1 a 1 wreg ]
+[v I2C_Master_Write@data data `uc  1 a 1 wreg ]
+"58
+[v I2C_Master_Write@data data `uc  1 a 1 1 ]
+"63
+} 0
+"36
+[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
+{
+"40
+} 0
+"24
+[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
+{
+"28
+} 0
+"19
+[v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
+{
+"22
+} 0
+"9
+[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
+{
+"17
+} 0

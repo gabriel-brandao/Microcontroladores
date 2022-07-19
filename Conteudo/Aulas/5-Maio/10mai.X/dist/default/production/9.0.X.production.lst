@@ -1,0 +1,519 @@
+
+
+Microchip MPLAB XC8 Assembler V2.10 build 88905656 
+                                                                                               Tue May 10 17:26:35 2022
+
+Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
+     1                           	processor	18F4550
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	flic
+     5                           	psect	idataCOMRAM,global,class=CODE,delta=1,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     8                           	psect	dataCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+    10                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    11                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    12                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    13  0000                     
+    14                           ; Version 2.10
+    15                           ; Generated 31/07/2019 GMT
+    16                           ; 
+    17                           ; Copyright © 2019, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    18                           ; All rights reserved.
+    19                           ; 
+    20                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    21                           ; 
+    22                           ; Redistribution and use in source and binary forms, with or without modification, are
+    23                           ; permitted provided that the following conditions are met:
+    24                           ; 
+    25                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    26                           ;        conditions and the following disclaimer.
+    27                           ; 
+    28                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    29                           ;        of conditions and the following disclaimer in the documentation and/or other
+    30                           ;        materials provided with the distribution.
+    31                           ; 
+    32                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    33                           ;        software without specific prior written permission.
+    34                           ; 
+    35                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    36                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    37                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    38                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    39                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    40                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    41                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    42                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    43                           ; 
+    44                           ; 
+    45                           ; Code-generator required, PIC18F4550 Definitions
+    46                           ; 
+    47                           ; SFR Addresses
+    48  0000                     
+    49                           	psect	idataCOMRAM
+    50  007EF0                     __pidataCOMRAM:
+    51                           	opt callstack 0
+    52                           
+    53                           ;initializer for _aux
+    54  007EF0  0001               	dw	1
+    55  0000                     _PORTBbits	set	3969
+    56  0000                     _PIR2bits	set	4001
+    57  0000                     _PORTB	set	3969
+    58  0000                     _TRISB	set	3987
+    59  0000                     _TRISCbits	set	3988
+    60  0000                     _T1CON	set	4045
+    61  0000                     _CCPR2H	set	4028
+    62  0000                     _CCPR2L	set	4027
+    63  0000                     _TMR1L	set	4046
+    64  0000                     _TMR1H	set	4047
+    65  0000                     _T3CONbits	set	4017
+    66  0000                     _CCP2CON	set	4026
+    67                           
+    68                           ; #config settings
+    69  0000                     
+    70                           	psect	cinit
+    71  007EF2                     __pcinit:
+    72                           	opt callstack 0
+    73  007EF2                     start_initialization:
+    74                           	opt callstack 0
+    75  007EF2                     __initialization:
+    76                           	opt callstack 0
+    77                           
+    78                           ; Initialize objects allocated to COMRAM (2 bytes)
+    79                           ; load TBLPTR registers with __pidataCOMRAM
+    80  007EF2  0EF0               	movlw	low __pidataCOMRAM
+    81  007EF4  6EF6               	movwf	tblptrl,c
+    82  007EF6  0E7E               	movlw	high __pidataCOMRAM
+    83  007EF8  6EF7               	movwf	tblptrh,c
+    84  007EFA  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
+    85  007EFC  6EF8               	movwf	tblptru,c
+    86  007EFE  0009               	tblrd		*+	;fetch initializer
+    87  007F00  CFF5 F003          	movff	tablat,__pdataCOMRAM
+    88  007F04  0009               	tblrd		*+	;fetch initializer
+    89  007F06  CFF5 F004          	movff	tablat,__pdataCOMRAM+1
+    90                           
+    91                           ; Clear objects allocated to COMRAM (2 bytes)
+    92  007F0A  6A02               	clrf	(__pbssCOMRAM+1)& (0+255),c
+    93  007F0C  6A01               	clrf	__pbssCOMRAM& (0+255),c
+    94  007F0E                     end_of_initialization:
+    95                           	opt callstack 0
+    96  007F0E                     __end_of__initialization:
+    97                           	opt callstack 0
+    98  007F0E  0100               	movlb	0
+    99  007F10  EF8A  F03F         	goto	_main	;jump to C main() function
+   100                           
+   101                           	psect	bssCOMRAM
+   102  000001                     __pbssCOMRAM:
+   103                           	opt callstack 0
+   104  000001                     _sentido:
+   105                           	opt callstack 0
+   106  000001                     	ds	2
+   107                           
+   108                           	psect	dataCOMRAM
+   109  000003                     __pdataCOMRAM:
+   110                           	opt callstack 0
+   111  000003                     _aux:
+   112                           	opt callstack 0
+   113  000003                     	ds	2
+   114                           
+   115                           	psect	cstackCOMRAM
+   116  000005                     __pcstackCOMRAM:
+   117                           	opt callstack 0
+   118  000005                     ??_main:
+   119                           
+   120                           ; 1 bytes @ 0x0
+   121  000005                     	ds	2
+   122                           
+   123 ;;
+   124 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   125 ;;
+   126 ;; *************** function _main *****************
+   127 ;; Defined at:
+   128 ;;		line 77 in file "newmain.c"
+   129 ;; Parameters:    Size  Location     Type
+   130 ;;		None
+   131 ;; Auto vars:     Size  Location     Type
+   132 ;;		None
+   133 ;; Return value:  Size  Location     Type
+   134 ;;                  1    wreg      void 
+   135 ;; Registers used:
+   136 ;;		wreg, status,2, status,0
+   137 ;; Tracked objects:
+   138 ;;		On entry : 0/0
+   139 ;;		On exit  : 0/0
+   140 ;;		Unchanged: 0/0
+   141 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   142 ;;      Params:         0       0       0       0       0       0       0       0       0
+   143 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   144 ;;      Temps:          2       0       0       0       0       0       0       0       0
+   145 ;;      Totals:         2       0       0       0       0       0       0       0       0
+   146 ;;Total ram usage:        2 bytes
+   147 ;; This function calls:
+   148 ;;		Nothing
+   149 ;; This function is called by:
+   150 ;;		Startup code after reset
+   151 ;; This function uses a non-reentrant model
+   152 ;;
+   153                           
+   154                           	psect	text0
+   155  007F14                     __ptext0:
+   156                           	opt callstack 0
+   157  007F14                     _main:
+   158                           	opt callstack 31
+   159  007F14                     
+   160                           ;newmain.c: 79:     CCP2CON = 0b00001011;
+   161  007F14  0E0B               	movlw	11
+   162  007F16  6EBA               	movwf	186,c	;volatile
+   163  007F18                     
+   164                           ;newmain.c: 80:     T3CONbits.T3CCP1 = 0;
+   165  007F18  96B1               	bcf	177,3,c	;volatile
+   166  007F1A                     
+   167                           ;newmain.c: 81:     T3CONbits.T3CCP2 = 0;
+   168  007F1A  9CB1               	bcf	177,6,c	;volatile
+   169                           
+   170                           ;newmain.c: 82:     ((void)(TMR1H=((3036)>>8),TMR1L=((3036)&0xFF)));
+   171  007F1C  0E0B               	movlw	11
+   172  007F1E  6ECF               	movwf	207,c	;volatile
+   173  007F20  0EDC               	movlw	220
+   174  007F22  6ECE               	movwf	206,c	;volatile
+   175  007F24                     
+   176                           ;newmain.c: 83:     CCPR2L = 0xFF;
+   177  007F24  68BB               	setf	187,c	;volatile
+   178  007F26                     
+   179                           ;newmain.c: 84:     CCPR2H = 0xFF;
+   180  007F26  68BC               	setf	188,c	;volatile
+   181                           
+   182                           ;newmain.c: 85:     T1CON = 0b11110001;
+   183  007F28  0EF1               	movlw	241
+   184  007F2A  6ECD               	movwf	205,c	;volatile
+   185  007F2C                     
+   186                           ;newmain.c: 86:     TRISCbits.RC1 = 0;
+   187  007F2C  9294               	bcf	148,1,c	;volatile
+   188                           
+   189                           ;newmain.c: 87:     TRISB = 0b11110000;
+   190  007F2E  0EF0               	movlw	240
+   191  007F30  6E93               	movwf	147,c	;volatile
+   192                           
+   193                           ;newmain.c: 88:     PORTB = 0x01;
+   194  007F32  0E01               	movlw	1
+   195  007F34  6E81               	movwf	129,c	;volatile
+   196  007F36                     l733:
+   197                           
+   198                           ;newmain.c: 90:         if(PIR2bits.CCP2IF == 1){
+   199  007F36  A0A1               	btfss	161,0,c	;volatile
+   200  007F38  EFA0  F03F         	goto	u11
+   201  007F3C  EFA2  F03F         	goto	u10
+   202  007F40                     u11:
+   203  007F40  EFE2  F03F         	goto	l751
+   204  007F44                     u10:
+   205  007F44                     
+   206                           ;newmain.c: 91:             if(sentido == 0){
+   207  007F44  5001               	movf	_sentido^0,w,c
+   208  007F46  1002               	iorwf	(_sentido+1)^0,w,c
+   209  007F48  A4D8               	btfss	status,2,c
+   210  007F4A  EFA9  F03F         	goto	u21
+   211  007F4E  EFAB  F03F         	goto	u20
+   212  007F52                     u21:
+   213  007F52  EFC4  F03F         	goto	l741
+   214  007F56                     u20:
+   215  007F56                     
+   216                           ;newmain.c: 92:                 aux = aux << 1;
+   217  007F56  90D8               	bcf	status,0,c
+   218  007F58  3403               	rlcf	_aux^0,w,c
+   219  007F5A  6E03               	movwf	_aux^0,c
+   220  007F5C  3404               	rlcf	(_aux+1)^0,w,c
+   221  007F5E  6E04               	movwf	(_aux+1)^0,c
+   222                           
+   223                           ;newmain.c: 94:                 if(aux > 8)
+   224  007F60  BE04               	btfsc	(_aux+1)^0,7,c
+   225  007F62  EFBC  F03F         	goto	u31
+   226  007F66  5004               	movf	(_aux+1)^0,w,c
+   227  007F68  E109               	bnz	u30
+   228  007F6A  0E09               	movlw	9
+   229  007F6C  5C03               	subwf	_aux^0,w,c
+   230  007F6E  A0D8               	btfss	status,0,c
+   231  007F70  EFBC  F03F         	goto	u31
+   232  007F74  EFBE  F03F         	goto	u30
+   233  007F78                     u31:
+   234  007F78  EFDF  F03F         	goto	l747
+   235  007F7C                     u30:
+   236  007F7C                     
+   237                           ;newmain.c: 95:                     aux = 1;
+   238  007F7C  0E00               	movlw	0
+   239  007F7E  6E04               	movwf	(_aux+1)^0,c
+   240  007F80  0E01               	movlw	1
+   241  007F82  6E03               	movwf	_aux^0,c
+   242  007F84  EFDF  F03F         	goto	l747
+   243  007F88                     l741:
+   244                           
+   245                           ;newmain.c: 97:                 if(aux>1)
+   246  007F88  BE04               	btfsc	(_aux+1)^0,7,c
+   247  007F8A  EFD0  F03F         	goto	u41
+   248  007F8E  5004               	movf	(_aux+1)^0,w,c
+   249  007F90  E109               	bnz	u40
+   250  007F92  0E02               	movlw	2
+   251  007F94  5C03               	subwf	_aux^0,w,c
+   252  007F96  A0D8               	btfss	status,0,c
+   253  007F98  EFD0  F03F         	goto	u41
+   254  007F9C  EFD2  F03F         	goto	u40
+   255  007FA0                     u41:
+   256  007FA0  EFDB  F03F         	goto	l745
+   257  007FA4                     u40:
+   258  007FA4                     
+   259                           ;newmain.c: 98:                     aux = aux >> 1;
+   260  007FA4  3404               	rlcf	(_aux+1)^0,w,c
+   261  007FA6  3004               	rrcf	(_aux+1)^0,w,c
+   262  007FA8  6E05               	movwf	??_main^0,c
+   263  007FAA  3003               	rrcf	_aux^0,w,c
+   264  007FAC  6E03               	movwf	_aux^0,c
+   265  007FAE  C005  F004         	movff	??_main,_aux+1
+   266  007FB2  EFDF  F03F         	goto	l747
+   267  007FB6                     l745:
+   268                           
+   269                           ;newmain.c: 100:                     aux = 8;
+   270  007FB6  0E00               	movlw	0
+   271  007FB8  6E04               	movwf	(_aux+1)^0,c
+   272  007FBA  0E08               	movlw	8
+   273  007FBC  6E03               	movwf	_aux^0,c
+   274  007FBE                     l747:
+   275                           
+   276                           ;newmain.c: 103:             PORTB = aux;
+   277  007FBE  C003  FF81         	movff	_aux,3969	;volatile
+   278  007FC2                     
+   279                           ;newmain.c: 104:             PIR2bits.CCP2IF=0;
+   280  007FC2  90A1               	bcf	161,0,c	;volatile
+   281  007FC4                     l751:
+   282                           
+   283                           ;newmain.c: 107:         if(PORTBbits.RB4 == 0){
+   284  007FC4  B881               	btfsc	129,4,c	;volatile
+   285  007FC6  EFE7  F03F         	goto	u51
+   286  007FCA  EFE9  F03F         	goto	u50
+   287  007FCE                     u51:
+   288  007FCE  EF9B  F03F         	goto	l733
+   289  007FD2                     u50:
+   290  007FD2                     
+   291                           ;newmain.c: 108:             if(sentido == 0)
+   292  007FD2  5001               	movf	_sentido^0,w,c
+   293  007FD4  1002               	iorwf	(_sentido+1)^0,w,c
+   294  007FD6  A4D8               	btfss	status,2,c
+   295  007FD8  EFF0  F03F         	goto	u61
+   296  007FDC  EFF2  F03F         	goto	u60
+   297  007FE0                     u61:
+   298  007FE0  EFF8  F03F         	goto	l757
+   299  007FE4                     u60:
+   300  007FE4                     
+   301                           ;newmain.c: 109:                 sentido = 1;
+   302  007FE4  0E00               	movlw	0
+   303  007FE6  6E02               	movwf	(_sentido+1)^0,c
+   304  007FE8  0E01               	movlw	1
+   305  007FEA  6E01               	movwf	_sentido^0,c
+   306  007FEC  EF9B  F03F         	goto	l733
+   307  007FF0                     l757:
+   308                           
+   309                           ;newmain.c: 111:                 sentido = 0;
+   310  007FF0  0E00               	movlw	0
+   311  007FF2  6E02               	movwf	(_sentido+1)^0,c
+   312  007FF4  0E00               	movlw	0
+   313  007FF6  6E01               	movwf	_sentido^0,c
+   314  007FF8  EF9B  F03F         	goto	l733
+   315  007FFC  EF00  F000         	goto	start
+   316  008000                     __end_of_main:
+   317                           	opt callstack 0
+   318  0000                     
+   319                           	psect	rparam
+   320  0000                     tosu	equ	0xFFF
+   321                           tosh	equ	0xFFE
+   322                           tosl	equ	0xFFD
+   323                           stkptr	equ	0xFFC
+   324                           pclatu	equ	0xFFB
+   325                           pclath	equ	0xFFA
+   326                           pcl	equ	0xFF9
+   327                           tblptru	equ	0xFF8
+   328                           tblptrh	equ	0xFF7
+   329                           tblptrl	equ	0xFF6
+   330                           tablat	equ	0xFF5
+   331                           prodh	equ	0xFF4
+   332                           prodl	equ	0xFF3
+   333                           indf0	equ	0xFEF
+   334                           postinc0	equ	0xFEE
+   335                           postdec0	equ	0xFED
+   336                           preinc0	equ	0xFEC
+   337                           plusw0	equ	0xFEB
+   338                           fsr0h	equ	0xFEA
+   339                           fsr0l	equ	0xFE9
+   340                           wreg	equ	0xFE8
+   341                           indf1	equ	0xFE7
+   342                           postinc1	equ	0xFE6
+   343                           postdec1	equ	0xFE5
+   344                           preinc1	equ	0xFE4
+   345                           plusw1	equ	0xFE3
+   346                           fsr1h	equ	0xFE2
+   347                           fsr1l	equ	0xFE1
+   348                           bsr	equ	0xFE0
+   349                           indf2	equ	0xFDF
+   350                           postinc2	equ	0xFDE
+   351                           postdec2	equ	0xFDD
+   352                           preinc2	equ	0xFDC
+   353                           plusw2	equ	0xFDB
+   354                           fsr2h	equ	0xFDA
+   355                           fsr2l	equ	0xFD9
+   356                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        2
+    BSS         2
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95      2       6
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 2     2      0       0
+                                              0 COMRAM     2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 0
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             7FF      0       0      21        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F      2       6       1        6.3%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0       6      20        0.0%
+DATA                 0      0       6       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.10 build 88905656 
+Symbol Table                                                                                   Tue May 10 17:26:35 2022
+
+                     u10 7F44                       u11 7F40                       u20 7F56  
+                     u21 7F52                       u30 7F7C                       u31 7F78  
+                     u40 7FA4                       u41 7FA0                       u50 7FD2  
+                     u51 7FCE                       u60 7FE4                       u61 7FE0  
+            __CFG_BOR$ON 000000              __CFG_BORV$3 000000             __CFG_CP0$OFF 000000  
+           __CFG_CP1$OFF 000000             __CFG_CP2$OFF 000000             __CFG_CP3$OFF 000000  
+            __CFG_LVP$ON 000000                      l721 7F14                      l731 7F2C  
+                    l723 7F18                      l741 7F88                      l733 7F36  
+                    l725 7F1A                      l743 7FA4                      l735 7F44  
+                    l751 7FC4                      l727 7F24                      l753 7FD2  
+                    l745 7FB6                      l737 7F56                      l729 7F26  
+                    l755 7FE4                      l739 7F7C                      l747 7FBE  
+                    l757 7FF0                      l749 7FC2             __CFG_CPB$OFF 000000  
+           __CFG_CPD$OFF 000000                      _aux 0003             __CFG_WDT$OFF 000000  
+                   _main 7F14                     start 0000            __CFG_IESO$OFF 000000  
+          __CFG_MCLRE$ON 000000             ___param_bank 000000            __CFG_PLLDIV$1 000000  
+         __CFG_CCP2MX$ON 000000                    ?_main 0005                    _T1CON 000FCD  
+                  _TMR1H 000FCF                    _TMR1L 000FCE                    _PORTB 000F81  
+          __CFG_USBDIV$1 000000                    _TRISB 000F93            __CFG_PWRT$OFF 000000  
+          __CFG_WRT0$OFF 000000            __CFG_WRT1$OFF 000000            __CFG_WRT2$OFF 000000  
+          __CFG_WRT3$OFF 000000           __CFG_EBTR0$OFF 000000           __CFG_FCMEN$OFF 000000  
+         __CFG_EBTR1$OFF 000000           __CFG_EBTR2$OFF 000000           __CFG_EBTR3$OFF 000000  
+          __CFG_WRTB$OFF 000000            __CFG_WRTC$OFF 000000            __CFG_WRTD$OFF 000000  
+         __CFG_EBTRB$OFF 000000                    tablat 000FF5                    status 000FD8  
+         __CFG_ICPRT$OFF 000000          __initialization 7EF2             __end_of_main 8000  
+                 ??_main 0005            __activetblptr 000000                   _CCPR2H 000FBC  
+                 _CCPR2L 000FBB           __CFG_XINST$OFF 000000           __CFG_STVREN$ON 000000  
+           __pdataCOMRAM 0003                   tblptrh 000FF7                   tblptrl 000FF6  
+                 tblptru 000FF8          __CFG_FOSC$EC_EC 000000               __accesstop 0060  
+__end_of__initialization 7F0E          __CFG_PBADEN$OFF 000000            ___rparam_used 000001  
+         __pcstackCOMRAM 0005                  _CCP2CON 000FBA          __CFG_VREGEN$OFF 000000  
+                __Hparam 0000                  __Lparam 0000                  __pcinit 7EF2  
+                __ramtop 0800                  __ptext0 7F14                _T3CONbits 000FB1  
+                _sentido 0001     end_of_initialization 7F0E                _PORTBbits 000F81  
+              _TRISCbits 000F94            __pidataCOMRAM 7EF0      start_initialization 7EF2  
+       __CFG_LPT1OSC$OFF 000000              __pbssCOMRAM 0001                 _PIR2bits 000FA1  
+       __CFG_WDTPS$32768 000000                 __Hrparam 0000                 __Lrparam 0000  
+          __size_of_main 00EC    __CFG_CPUDIV$OSC1_PLL2 000000  

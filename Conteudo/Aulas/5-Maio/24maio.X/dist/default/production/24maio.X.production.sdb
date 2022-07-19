@@ -1,0 +1,271 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+[d frameptr 4065 ]
+"8 C:\Users\05439461183\MPLABXProjects\24maio.X/uart.h
+[v _UART_Open UART_Open `(v  1 e 1 0 ]
+"28
+[v _UART_Close UART_Close `(v  1 e 1 0 ]
+"36
+[v _UART_TX_Busy UART_TX_Busy `(uc  1 e 1 0 ]
+"40
+[v _UART_RX_Ready UART_RX_Ready `(uc  1 e 1 0 ]
+"44
+[v _UART_Write UART_Write `(v  1 e 1 0 ]
+"52
+[v _UART_Read UART_Read `(v  1 e 1 0 ]
+"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isdigit.c
+[v _isdigit isdigit `(i  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isspace.c
+[v _isspace isspace `(i  1 e 2 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"78 C:\Users\05439461183\MPLABXProjects\24maio.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"2453 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+[s S182 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"2483
+[s S191 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S199 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S202 . 1 `S182 1 . 1 0 `S191 1 . 1 0 `S199 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES202  1 e 1 @3969 ]
+"3625
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+[s S131 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"3875
+[s S138 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S145 . 1 `S131 1 . 1 0 `S138 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES145  1 e 1 @3988 ]
+[s S77 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"4977
+[s S86 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S89 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[s S92 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S95 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S98 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[u S100 . 1 `S77 1 . 1 0 `S86 1 . 1 0 `S89 1 . 1 0 `S92 1 . 1 0 `S95 1 . 1 0 `S98 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES100  1 e 1 @4011 ]
+[s S24 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"5185
+[s S33 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S42 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S45 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S47 . 1 `S24 1 . 1 0 `S33 1 . 1 0 `S42 1 . 1 0 `S45 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES47  1 e 1 @4012 ]
+"5402
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"5414
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"5426
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"10440
+[v _RCIE RCIE `VEb  1 e 0 @31981 ]
+"10443
+[v _RCIF RCIF `VEb  1 e 0 @31989 ]
+"11040
+[v _TXIE TXIE `VEb  1 e 0 @31980 ]
+"78 C:\Users\05439461183\MPLABXProjects\24maio.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"82
+[v main@temp temp `[10]uc  1 a 10 30 ]
+"81
+[v main@numPorta numPorta `uc  1 a 1 40 ]
+"182
+} 0
+"3 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
+{
+"5
+[v strncmp@r r `*.25Cuc  1 a 2 9 ]
+[v strncmp@l l `*.39Cuc  1 a 2 7 ]
+"3
+[v strncmp@_l _l `*.39Cuc  1 p 2 0 ]
+[v strncmp@_r _r `*.25Cuc  1 p 2 2 ]
+[v strncmp@n n `ui  1 p 2 4 ]
+"9
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
+{
+"6
+[v atoi@n n `i  1 a 2 20 ]
+[v atoi@neg neg `i  1 a 2 13 ]
+"4
+[v atoi@s s `*.39Cuc  1 p 2 7 ]
+"16
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isspace.c
+[v _isspace isspace `(i  1 e 2 0 ]
+{
+[v isspace@c c `i  1 p 2 0 ]
+"8
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isdigit.c
+[v _isdigit isdigit `(i  1 e 2 0 ]
+{
+[v isdigit@c c `i  1 p 2 0 ]
+"8
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"44 C:\Users\05439461183\MPLABXProjects\24maio.X/uart.h
+[v _UART_Write UART_Write `(v  1 e 1 0 ]
+{
+"45
+[v UART_Write@i i `i  1 a 2 4 ]
+"44
+[v UART_Write@info info `*.35uc  1 p 2 0 ]
+"50
+} 0
+"36
+[v _UART_TX_Busy UART_TX_Busy `(uc  1 e 1 0 ]
+{
+"38
+} 0
+"52
+[v _UART_Read UART_Read `(v  1 e 1 0 ]
+{
+"53
+[v UART_Read@i i `ui  1 a 2 4 ]
+"52
+[v UART_Read@info info `*.39uc  1 p 2 0 ]
+"65
+} 0
+"40
+[v _UART_RX_Ready UART_RX_Ready `(uc  1 e 1 0 ]
+{
+"42
+} 0
+"8
+[v _UART_Open UART_Open `(v  1 e 1 0 ]
+{
+"9
+[v UART_Open@x x `ui  1 a 2 26 ]
+"8
+[v UART_Open@baudrate baudrate `Cl  1 p 4 14 ]
+"26
+} 0
+"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"10
+[v ___aldiv@quotient quotient `l  1 a 4 10 ]
+"11
+[v ___aldiv@sign sign `uc  1 a 1 9 ]
+[v ___aldiv@counter counter `uc  1 a 1 8 ]
+"7
+[v ___aldiv@dividend dividend `l  1 p 4 0 ]
+[v ___aldiv@divisor divisor `l  1 p 4 4 ]
+"41
+} 0
+"28 C:\Users\05439461183\MPLABXProjects\24maio.X/uart.h
+[v _UART_Close UART_Close `(v  1 e 1 0 ]
+{
+"30
+} 0
